@@ -48,7 +48,7 @@ else
 		fi &
 	fi
 	case $MESSAGE in
-		'/qrcode')
+		'*/qrcode*')
 			ip=$(curl ifconfig.me)
 			send_file "${CHAT[ID]}" "/root/file/$ip.png" "ssr二维码"
 			;;
