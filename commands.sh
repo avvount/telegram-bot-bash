@@ -50,6 +50,7 @@ else
 	case $MESSAGE in
 		'/qrcode')
 			send_file "${CHAT[ID]}" "/root/file/qrcode.png" "Lool"
+			send_message "${CHAT[ID]}" "successfully"
 			;;
 		'/question')
 			startproc "./question"
