@@ -49,8 +49,7 @@ else
 	fi
 	case $MESSAGE in
 		'/qrcode')
-			send_file "${CHAT[ID]}" "/root/file/*.png" ""
-			send_message "${CHAT[ID]}" "successfully"
+			send_file "${CHAT[ID]}" "/root/file/*.png" "ssr二维码"
 			;;
 		'/question')
 			startproc "./question"
