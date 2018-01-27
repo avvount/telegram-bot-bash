@@ -49,7 +49,7 @@ else
 	fi
 	case $MESSAGE in
 		'/qrcode')
-			send_file "${CHAT[ID]}" "/root/file/qrcode.png" "Lool"
+			send_file "${CHAT[ID]}" "/root/file/*.png" ""
 			send_message "${CHAT[ID]}" "successfully"
 			;;
 		'/question')
