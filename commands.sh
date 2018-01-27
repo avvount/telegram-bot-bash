@@ -48,6 +48,9 @@ else
 		fi &
 	fi
 	case $MESSAGE in
+		'/qrcode')
+			send_message "${CHAT[ID]}" "lol"
+			;;
 		'/question')
 			startproc "./question"
 			;;
