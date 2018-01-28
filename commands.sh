@@ -50,10 +50,9 @@ else
 	case $MESSAGE in
 		'/qrcode')
 		
-			if [[ "${USER[ID]}" == "290582222" ]]; then
+			if [[ "${USER[ID]}" == "290582222" && "${CHAT[ID]}" == "290582222"]]; then
 				ip=$(curl ifconfig.me)
 				send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
-				send_message "${CHAT[ID]}" "${CHAT[ID]}"
 			fi
 			;;
 		# '/ssconfig')
