@@ -53,8 +53,9 @@ else
 			send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
 			send_text "${CHAT[ID]}" "${USER[ID]}"
 			;;
-		'/ssconfig')
-			send_message
+		# '/ssconfig')
+			# send_message
+			# ;;
 		'/question')
 			startproc "./question"
 			;;
