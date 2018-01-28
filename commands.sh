@@ -11,7 +11,7 @@ if [ "$1" = "source" ];then
 	# To enable this option in your bot, send the /setinline command to @BotFather.
 	INLINE=0
 	# Set to .* to allow sending files from all locations
-	FILE_REGEX='$HOME'
+	FILE_REGEX='.*'
 else
 	if ! tmux ls | grep -v send | grep -q $copname; then
 		[ ! -z ${URLS[*]} ] && {
@@ -49,15 +49,14 @@ else
 	fi
 	case $MESSAGE in
 		'/qrcode')
-		
 			if [[ "${USER[ID]}" == "290582222" && "${CHAT[ID]}" == "290582222" ]]; then
 				ip=$(curl ifconfig.me)
 				send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
 			fi
 			;;
-		# '/ssconfig')
-			# send_message
-			# ;;
+		 '/ssconfig')
+			send_message "${USER[ID]}" "${LOCATION[LONGITUDE]}"
+			;;
 		'/question')
 			startproc "./question"
 			;;
@@ -86,16 +85,21 @@ Get the code in my [GitHub](http://github.com/topkecleon/telegram-bot-bash)
    			leave_chat "${CHAT[ID]}"
      			;;
      			
-     		'/kickme')
-     			kick_chat_member "${CHAT[ID]}" "${USER[ID]}"
-     			unban_chat_member "${CHAT[ID]}" "${USER[ID]}"
-     			;;
+ 		'/kickme')
+ 			kick_chat_member "${CHAT[ID]}" "${USER[ID]}"
+ 			unban_chat_member "${CHAT[ID]}" "${USER[ID]}"
+ 			;;
      			
 		'/cancel')
 			if tmux ls | grep -q $copname; then killproc && send_message "${CHAT[ID]}" "Command canceled.";else send_message "${CHAT[ID]}" "No command is currently running.";fi
 			;;
 		*)
-			if tmux ls | grep -v send | grep -q $copname;then inproc; else send_message "${CHAT[ID]}" "$MESSAGE" "safe";fi
-			;;
+			tmpfile=$($MESSAGE)
+			send_message "${CHAT[ID]}" "$tmpfile" 
+			send_message "${CHAT[ID]}" "$MESSAGE" 
+		;;
+		# *)
+		# 	if tmux ls | grep -v send | grep -q $copname;then inproc; else send_message "${CHAT[ID]}" "$MESSAGE" "safe";fi
+		# 	;;
 	esac
 fi
