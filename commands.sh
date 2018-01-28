@@ -11,7 +11,7 @@ if [ "$1" = "source" ];then
 	# To enable this option in your bot, send the /setinline command to @BotFather.
 	INLINE=0
 	# Set to .* to allow sending files from all locations
-	FILE_REGEX='/root/file/'
+	FILE_REGEX='$HOME'
 else
 	if ! tmux ls | grep -v send | grep -q $copname; then
 		[ ! -z ${URLS[*]} ] && {
@@ -50,7 +50,7 @@ else
 	case $MESSAGE in
 		'/qrcode')
 			ip=$(curl ifconfig.me)
-			send_file "${CHAT[ID]}" "/root/file/$ip.png" "ssr二维码"
+			send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
 			;;
 		'/question')
 			startproc "./question"
