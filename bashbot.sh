@@ -454,7 +454,7 @@ case "$1" in
 		send_markdown_message "${CHAT[ID]}" "*Bot stopped*"
 		echo -e '\e[0;32mOK. Bot stopped successfully.\e[0m'
 		;;
-	"restart"
+	"restart")
 		tmux kill-session -t $ME &>/dev/null
 		send_markdown_message "${CHAT[ID]}" "*Bot stopped*"
 		echo -e '\e[0;32mOK. Bot stopped successfully.\e[0m'
