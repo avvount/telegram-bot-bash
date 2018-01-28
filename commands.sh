@@ -49,9 +49,10 @@ else
 	fi
 	case $MESSAGE in
 		'/qrcode')
-			ip=$(curl ifconfig.me)
-			send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
-			send_text "${CHAT[ID]}" "${USER[ID]}"
+			if [[ "${USER[ID]}" == "290582222" ]]; then
+				ip=$(curl ifconfig.me)
+				send_file "${CHAT[ID]}" "$HOME/file/$ip.png" "ssr二维码"
+			fi
 			;;
 		# '/ssconfig')
 			# send_message

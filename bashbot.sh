@@ -254,7 +254,7 @@ send_file() {
 	[ "$2" = "" ] && return
 	local chat_id=$1
 	local file=$2
-	echo "$file" | grep -qE $FILE_REGEX || return
+	# echo "$file" | grep -qE $FILE_REGEX || return
 	local ext="${file##*.}"
 	case $ext in
         	mp3|flac)
