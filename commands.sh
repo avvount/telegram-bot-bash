@@ -52,7 +52,7 @@ else
 			if [[ "${USER[ID]}" == "290582222" && "${CHAT[ID]}" == "290582222" ]]; then
 				for i in $HOME/file/*; do
 					if [[ ${i##*.} = "png" ]]; then
-						send_file "${CHAT[ID]}" "$HOME/file/$i" "端口 ： $i"
+						send_file "${CHAT[ID]}" "$i" "端口 ： $i"
 					fi
 				done
 			fi
