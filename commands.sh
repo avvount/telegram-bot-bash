@@ -52,7 +52,7 @@ else
 			if [[ "${USER[ID]}" == "290582222" && "${CHAT[ID]}" == "290582222" ]]; then
 				for i in $HOME/file/*; do
 					if [[ ${i##*.} = "png" ]]; then
-						port=basename -s .png $i
+						port=`basename -s .png $i`
 						send_file "${CHAT[ID]}" "$i" "端口 ： $port"
 					fi
 				done
