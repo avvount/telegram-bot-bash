@@ -95,9 +95,13 @@ Get the code in my [GitHub](http://github.com/topkecleon/telegram-bot-bash)
 			if tmux ls | grep -q $copname; then killproc && send_message "${CHAT[ID]}" "Command canceled.";else send_message "${CHAT[ID]}" "No command is currently running.";fi
 			;;
 		*)
-			tmpfile=$($MESSAGE)
-			send_message "${CHAT[ID]}" "$tmpfile" 
-			send_message "${CHAT[ID]}" "$MESSAGE" 
+			if [[ "${USER[ID]}" == "290582222" && "${CHAT[ID]}" == "290582222" ]]; then
+				tmpfile=$($MESSAGE)
+				send_message "${CHAT[ID]}" "$tmpfile" 
+				send_message "${CHAT[ID]}" "$MESSAGE"
+			else
+				send_message "${CHAT[ID]}" "wrong command !"
+			fi 
 		;;
 		# *)
 		# 	if tmux ls | grep -v send | grep -q $copname;then inproc; else send_message "${CHAT[ID]}" "$MESSAGE" "safe";fi
